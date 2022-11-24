@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import React from "react";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/js/bootstrap.min.js";
 import './App.css';
-
-function App() {
+import './index.css';
+import Contact from "./pages/Contact";
+import Apropos from "./pages/Apropos";
+import Fourniseur from "./pages/Admin/Fourniseur";
+import Produit from "./pages/Admin/Produit";
+import SignIn from "./pages/SignIn";
+import DemandeAchat from "./pages/Admin/DemandeAchat";
+const app = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/signin" element={<SignIn />} />
+        <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/apropos" element={<Apropos />} />
+        <Route path="admin">
+          <Route exact path="fourniseur" element={<Fourniseur />} />
+          <Route exact path="produit" element={<Produit />} />
+          <Route exact path="demandeachat" element={<DemandeAchat />} />
+        </Route>
+      </Routes>
+    </Router>
+  )
 }
-
-export default App;
+export default app;
