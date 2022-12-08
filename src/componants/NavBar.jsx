@@ -5,7 +5,7 @@ const NavBar = () => {
         <Navbar className="navbar" variant="dark" collapseOnSelect expand="lg" >
         <Container>
             <Navbar.Brand className="text-white fw-bold" >
-                <Nav className="text-white d-block">Abrouch</Nav>
+                <Nav className="text-white d-block">Amrouch</Nav>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">

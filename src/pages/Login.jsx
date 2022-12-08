@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { fireStore } from "../auth/Firebase";
 const Login = () => {
-    const [email, setEmail] = useState("");
+    const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [admin,setAdmin]= useState([]);
     const navigate = useNavigate();
@@ -26,18 +26,18 @@ const Login = () => {
     const log = (e) => {
         e.preventDefault();
         let id = null ;
-        let user = false;
+        let u = false;
         admin.map(s => {
 
-            if (s.email === email && s.password === password) {
-                user = true
+            if (s.user === user && s.password === password) {
+                u = true
                 id = s.id
             }
             else
-                user = user || false
+                u = u || false
 
         })
-        if (user) {
+        if (u) {
             localStorage.setItem('user', id)
             navigate("/admin/fourniseur/"+id);
             toast.success('Logged in', {
@@ -74,8 +74,8 @@ const Login = () => {
                         <h1 className="fw-bolder fs-1 text-center">Login Admin</h1>
                         <Form className="mt-4 " onSubmit={log}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" required placeholder="Enter email" />
+                                <Form.Label>User</Form.Label>
+                                <Form.Control type="text" value={user} onChange={(e) => setUser(e.target.value)} className="form-control" required placeholder="Enter email" />
 
                             </Form.Group>
 

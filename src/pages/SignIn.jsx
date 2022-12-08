@@ -9,7 +9,7 @@ import { fireStore } from "../auth/Firebase";
 const SignIn = () => {
     const [nom, setNom] = useState("");
     const [prenom, setPrenom] = useState("")
-    const [email, setEmail] = useState("")
+    const [user, setUser] = useState("")
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const [admin,setAdmin]= useState([]);
@@ -29,21 +29,21 @@ const SignIn = () => {
     const signin = (e) => {
         e.preventDefault();
         let id = generateId();
-        let user=false
+        let u=false
         admin.map(s => {
 
-            if (s.email === email) {
-                user = true
+            if (s.user === user) {
+                u = true
 
             }
             else
-                user = user || false
+                u = u || false
 
         })
-    if (password.length > 6 && !user) {
+    if (password.length > 6 && !u) {
             
          setDoc(doc(fireStore, "admin", id), {
-            email: email,
+            user:user,
             password: password,
             nom: nom,
             prenom:prenom,
@@ -60,7 +60,7 @@ const SignIn = () => {
         });
         navigate("/login")
     }
-    else if (user) {
+    else if (u) {
         toast.error('This E-mail already used!', {
             position: "top-center",
             autoClose: 5000,
@@ -105,8 +105,8 @@ const SignIn = () => {
                                 <Form.Control type="text" value={prenom} onChange={(e) => setPrenom(e.target.value)} className="form-control" required placeholder="Enter prenom" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" required placeholder="Enter email" />
+                                <Form.Label>User</Form.Label>
+                                <Form.Control type="text" value={user} onChange={(e) => setUser(e.target.value)} className="form-control" required placeholder="Enter email" />
 
                             </Form.Group>
 

@@ -37,10 +37,24 @@ const Fourniseur = () => {
         <>
             <NavBarAdmin />
             <div className="bg">
-                <Container>
+                <Container className="pt-3">
                     <div className="fs-1 fw-bold text-center p-5">
                         Les Fourniseurs
                     </div>
+                    <form className="row g-3 rounded" onSubmit={addFourniseur}>
+                        <div className="col-md-6">
+                            <label for="inputEmail4" className="form-label fw-bold">Nom</label>
+                            <input type="text" value={nom} onChange={(e) => setNom(e.currentTarget.value)} className="form-control" placeholder="Entrer le nom de la formation" required />
+                        </div>
+                        <div className="col-md-6">
+                            <label for="inputPassword4" className="form-label fw-bold">Adresse</label>
+                            <input type="text" value={adresse} onChange={(e) => setAdresse(e.currentTarget.value)} className="form-control" placeholder="Entrer le nom du formateur" required />
+                        </div>
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary">Ajouter</button>
+                        </div>
+                    </form>
+                    
                     <Table className="table-bordered">
                         <thead>
                             <tr className="text-center bg-dark text-white">
@@ -68,19 +82,7 @@ const Fourniseur = () => {
                         </tbody>
                     </Table>
 
-                    <form className="row g-3 mt-2 rounded" onSubmit={addFourniseur}>
-                        <div className="col-md-6">
-                            <label for="inputEmail4" className="form-label fw-bold">Nom</label>
-                            <input type="text" value={nom} onChange={(e) => setNom(e.currentTarget.value)} className="form-control" placeholder="Entrer le nom de la formation" required />
-                        </div>
-                        <div className="col-md-6">
-                            <label for="inputPassword4" className="form-label fw-bold">Adresse</label>
-                            <input type="text" value={adresse} onChange={(e) => setAdresse(e.currentTarget.value)} className="form-control" placeholder="Entrer le nom du formateur" required />
-                        </div>
-                        <div className="col-12">
-                            <button type="submit" className="btn btn-primary">Ajouter</button>
-                        </div>
-                    </form>
+                    
                 </Container>
             </div>
         </>
