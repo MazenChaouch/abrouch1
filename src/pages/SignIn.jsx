@@ -28,7 +28,7 @@ const SignIn = () => {
     }, [])
     const signin = (e) => {
         e.preventDefault();
-        let id = generateId();
+        let id = generateId(10);
         let u=false
         admin.map(s => {
 

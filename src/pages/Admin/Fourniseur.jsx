@@ -44,11 +44,11 @@ const Fourniseur = () => {
                     <form className="row g-3 rounded" onSubmit={addFourniseur}>
                         <div className="col-md-6">
                             <label for="inputEmail4" className="form-label fw-bold">Nom</label>
-                            <input type="text" value={nom} onChange={(e) => setNom(e.currentTarget.value)} className="form-control" placeholder="Entrer le nom de la formation" required />
+                            <input type="text" value={nom} onChange={(e) => setNom(e.currentTarget.value)} className="form-control" placeholder="Entrer le nom de la fourniseur" required />
                         </div>
                         <div className="col-md-6">
                             <label for="inputPassword4" className="form-label fw-bold">Adresse</label>
-                            <input type="text" value={adresse} onChange={(e) => setAdresse(e.currentTarget.value)} className="form-control" placeholder="Entrer le nom du formateur" required />
+                            <input type="text" value={adresse} onChange={(e) => setAdresse(e.currentTarget.value)} className="form-control" placeholder="Entrer le adress du fournisseur" required />
                         </div>
                         <div className="col-12">
                             <button type="submit" className="btn btn-primary">Ajouter</button>
