@@ -10,7 +10,7 @@ const Fourniseur = () => {
     const [fourniseur, setFourniseur] = useState([]);
     const [nom, setNom] = useState("");
     const [adresse, setAdresse] = useState("");
-    let id = generateId()
+    let id = generateId(10)
     const addFourniseur = (e) => {
         e.preventDefault();
         setDoc(doc(fireStore, "fourniseur", id), {

@@ -1,4 +1,4 @@
-const generateId = (length = 10) => {
+const generateId = (length) => {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;

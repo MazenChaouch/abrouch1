@@ -12,8 +12,9 @@ const Produit = () => {
     const [quantity, setQuantity] = useState("");
     const [prix, setPrix] = useState("");
 
-    let id = generateId()
-    const addProduit = () => {
+    let id = generateId(10)
+    const addProduit = (e) => {
+        e.preventDefault();
         setDoc(doc(fireStore, "produit", id), {
             idp: idp,
             nom: nom,
@@ -35,7 +36,6 @@ const Produit = () => {
     }
     useEffect(() => {
         getProduit();
-        addProduit();
     }, [])
     return (
         <>
